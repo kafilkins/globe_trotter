@@ -1,0 +1,40 @@
+Sinatra CRUD application
+
+Interfaces:
+ - User can sign-in or sign-up
+ - User can enter new trip destination 
+ - User can create new content about their trip
+ - User can update existing content about a previous trip 
+ - User can delete a previous entry 
+
+ User class 
+ x attributes => username, password
+ - user signs in or can signup 
+ x has many trips
+
+ User controller & views
+ x '/users/signup' => renders signup form 
+ x '/users/signup' => processes signup form, creates a new user, post
+ - '/users/signin' => renders signin form 
+ - '/users/signin => processes sigin form, post 
+ - need to set sessions
+ - user can view their trips & content, '/users/:id/trips  
+
+ Trip class 
+ x attributes => location, description, adventures, user_id
+ x trip belongs to a user 
+
+ Trip controller and views
+ - '/trips/new => renders a new trip form 
+ - '/trips' => creates new trip w/ description & adventures for user 
+ - '/trips' => renders all trips 
+ - '/trips/:id' => renders one instance of a trip 
+ - '/trips/:id/edit = > renders an edit form for an instance of a trip 
+ - '/trips/:id => updates (edits) instance of a trip 
+ - '/trips/:id/:delete' => deletes an instance of a trip
+
+ Where to start?
+ x set up classes
+ x set up my database 
+ - users controller 
+ - trips controller
