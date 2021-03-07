@@ -25,12 +25,12 @@ Interfaces:
  x trip belongs to a user 
 
  Trip controller and views
- - '/trips/new => renders a new trip form 
- - '/trips' => creates new trip w/ description & adventures for user 
- - '/trips' => renders all trips 
- - '/trips/:id' => renders one instance of a trip 
- - '/trips/:id/edit = > renders an edit form for an instance of a trip 
- - '/trips/:id => updates (edits) instance of a trip 
+ x '/trips/new => renders a new trip form 
+ x '/trips' => creates new trip w/ location, description & adventures for user 
+ x '/trips' => renders all trips 
+ x '/trips/:id' => renders one instance of a trip 
+ x '/trips/:id/edit = > renders an edit form for an instance of a trip 
+ x '/trips/:id => updates (edits) instance of a trip 
  - '/trips/:id/:delete' => deletes an instance of a trip
 
  Where to start?
