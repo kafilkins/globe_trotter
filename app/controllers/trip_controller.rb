@@ -27,7 +27,6 @@ class TripController < ApplicationController
     end
 
     #update
-
     get '/trips/:id/edit' do 
         @trip = Trip.find(params[:id])
 
@@ -45,7 +44,6 @@ class TripController < ApplicationController
     end
 
     #delete
-
     delete '/trips/:id' do 
         @trip = Trip.find(params[:id])
         @trip.destroy

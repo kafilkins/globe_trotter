@@ -31,10 +31,18 @@ Interfaces:
  x '/trips/:id' => renders one instance of a trip 
  x '/trips/:id/edit = > renders an edit form for an instance of a trip 
  x '/trips/:id => updates (edits) instance of a trip 
- - '/trips/:id/:delete' => deletes an instance of a trip
+ x '/trips/:id/:delete' => deletes an instance of a trip
 
  Where to start?
  x set up classes
  x set up my database 
  - users controller 
  - trips controller
+
+ Session 
+ x enable sessions
+ - utilize sessions hash in the methods that persist user data into the app
+
+ Authentication
+ x give user model, has_secure_password
+ x make sure users table has "password_digest"
