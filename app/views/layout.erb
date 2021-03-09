@@ -12,7 +12,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="/stylesheets/main.css" />
+
+    <br>
+    <% if logged_in? %>
+    <div class="btn-group">
+    <button><a href="/trips">All Trips</a></button>
+    <button><a href='/trips/new'>New Trip Entry</a></button>
+    <button><a href='/trips/edit'>Edit Existing Trip Entry</a></button>
+    <button><a href='/sessions/logout'>Logout </a></button>
+    </div>  
+    <% end %> 
   </head>
+  <br>
+  <br>
   <body>
     <div class="wrapper">
 

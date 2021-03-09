@@ -1,5 +1,12 @@
 <h1> Welcome, <%= @user.username %> ! </h1>
 <br>
-<br>
-
-<a href='/users/logout'>Logout </a>
+<h3>Here's all of your trips</h3>
+<p><% @user.trips.each do |trip| %>
+    Location: <%= trip.location %><br>
+    <br>
+    Description: <%= trip.description %><br>
+    <br>
+    Adventures: <%= trip.adventures %><br>
+    <br>
+    <% end %>
+</p>

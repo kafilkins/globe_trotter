@@ -15,10 +15,10 @@ Interfaces:
  User controller & views
  x '/users/signup' => renders signup form 
  x '/users/signup' => processes signup form, creates a new user, post
- - '/users/signin' => renders signin form 
- - '/users/signin => processes sigin form, post 
- - need to set sessions
- - user can view their trips & content, '/users/:id/trips  
+ x '/users/signin' => renders signin form 
+ x '/users/signin => processes sigin form, post 
+ x need to set sessions
+ - user can view their trips '/users/:id/trips  
 
  Trip class 
  x attributes => location, description, adventures, user_id
@@ -41,7 +41,7 @@ Interfaces:
 
  Session 
  x enable sessions
- - utilize sessions hash in the methods that persist user data into the app
+ x utilize sessions hash in the methods that persist user data into the app
 
  Authentication
  x give user model, has_secure_password
