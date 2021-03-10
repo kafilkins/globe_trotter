@@ -1,9 +1,13 @@
 class TripController < ApplicationController
 
     #create 
-    get '/trips' do 
-        @trips = Trip.all #remember, this will return return an array!!!
-        erb :'/trips/index'
+    get '/trips' do
+        if logged_in? 
+            @trips = Trip.all #remember, this will return return an array!!!
+            erb :'/trips/index'
+        else
+            erb  :'/welcome'
+        end
     end
 
     get '/trips/new' do 
@@ -59,15 +63,19 @@ class TripController < ApplicationController
 
     post '/trips/:id' do
         if logged_in?
-        @trip = Trip.find(params[:id])
-        @trip.update(
-            location: params[:location], 
-            description: params[:description], 
-            adventures: params[:adventures]
-            )
-        redirect "/trips/#{@trip.id}"
+            if params[:location] == "" || params[:description] == "" || params[:adventures] == ""
+                redirect "/trips/#{params[:id]}/edit"
+            elsif    
+                @trip = Trip.find(params[:id])
+                @trip.update(
+                    location: params[:location], 
+                    description: params[:description], 
+                    adventures: params[:adventures]
+                    )
+                    redirect "/trips/#{@trip.id}"
         else 
             redirect '/trips/:id/edit'
+        end
         end
     end
 
