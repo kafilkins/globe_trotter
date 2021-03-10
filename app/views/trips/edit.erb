@@ -8,5 +8,9 @@
   <br>
   Adventures: <input type="text" value="<%= @trip.adventures %>"name="adventures"><br>
   <br>
-  <input type="submit" value="Submit">
-</form>
+  <input type="submit" value="Submit Changes">
+</form> or <form action="/trips/<%= @trip.id %>" method="POST">
+<input id="hidden" type="hidden" name="_method" value="DELETE">
+<input type="submit" value="Delete">
+</form> 
+

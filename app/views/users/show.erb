@@ -1,12 +1,18 @@
 <h1> Welcome, <%= @user.username %> ! </h1>
 <br>
+<% if @user.trips.empty? %>
+<h3>You have no trips, let's make a new one.</h3>
+<% else %>
 <h3>Here's all of your trips</h3>
 <p><% @user.trips.each do |trip| %>
-    <a href="/trips/<%= trip.id %>/edit">Location: <%= trip.location %><br></a>
+   <ul> 
+    <li>Location: <%= trip.location %> <a href="/trips/<%= trip.id %>/edit">Edit</a><br></li>
     <br>
-    Description: <%= trip.description %><br>
+    <li>Description: <%= trip.description %><br></li>
     <br>
-    Adventures: <%= trip.adventures %><br>
+    <li>Adventures: <%= trip.adventures %><br></li>
     <br>
     <% end %>
+    <% end %>
+    </ul>
 </p>

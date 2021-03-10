@@ -6,6 +6,6 @@ Adventures: <%= @trip.adventures %><br>
 <br>
 
 <form action="/trips/<%= @trip.id %>" method="POST">
-    <input id="hidden" type="hidden" name"_method" value="DELETE">
+    <input id="hidden" type="hidden" name="_method" value="DELETE">
     <input type="submit" value="Delete">
 </form> 

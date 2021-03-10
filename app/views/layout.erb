@@ -13,12 +13,16 @@
 
     <link rel="stylesheet" href="/stylesheets/main.css" />
 
+    <% if logged_in? %>
+    <%= current_user.username %>
+    <% end %>
+
     <br>
     <% if logged_in? %>
     <div class="btn-group">
     <button><a href="/trips">All Trips</a></button>
+    <button><a href="/users/<%= current_user.id %>">My Trips</a></button>
     <button><a href='/trips/new'>New Trip Entry</a></button>
-    <button><a href='/trips/:id/edit'>Edit Existing Trip Entry</a></button>
     <button><a href='/sessions/logout'>Logout </a></button>
     </div>  
     <% end %> 
