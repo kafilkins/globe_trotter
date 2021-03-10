@@ -2,7 +2,7 @@
 <br>
 <h3>Here's all of your trips</h3>
 <p><% @user.trips.each do |trip| %>
-    Location: <%= trip.location %><br>
+    <a href="/trips/<%= trip.id %>/edit">Location: <%= trip.location %><br></a>
     <br>
     Description: <%= trip.description %><br>
     <br>

@@ -1,7 +1,7 @@
 <h1>Edit an existing trip!</h1>
 
 <form action="/trips/<%= @trip.id %>" method="POST">
-<input id="hidden" type="hidden" name"_method" value="post">
+<input id="hidden" type="hidden" name"_method" value="patch">
   Location: <input type="text" value="<%= @trip.location %>" name="location"><br>
   <br>
   Description: <input type="text" value="<%= @trip.description %>"name="description"><br>

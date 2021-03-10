@@ -1,9 +1,10 @@
-Trip Location: <%= @trip.location %><br>
+Location: <%= @trip.location %><br>
 <br>
-Trip Description: <%= @trip.description %><br>
+Description: <%= @trip.description %><br>
 <br>
-Trip Adventures: <%= @trip.adventures %><br>
+Adventures: <%= @trip.adventures %><br>
 <br>
+
 <form action="/trips/<%= @trip.id %>" method="POST">
     <input id="hidden" type="hidden" name"_method" value="DELETE">
     <input type="submit" value="Delete">

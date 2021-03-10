@@ -1,6 +1,11 @@
 class TripController < ApplicationController
 
     #create 
+    get '/trips' do 
+        @trips = Trip.all #remember, this will return return an array!!!
+        erb :'/trips/index'
+    end
+
     get '/trips/new' do 
         if logged_in?
             erb :'/trips/new'
@@ -38,11 +43,6 @@ class TripController < ApplicationController
         end
     end
 
-    get '/trips' do 
-        @trips = Trip.all #remember, this will return return an array!!!
-        erb :'/trips/index'
-    end
-
     #update
     get '/trips/:id/edit' do 
         if logged_in?
@@ -58,6 +58,7 @@ class TripController < ApplicationController
     end
 
     post '/trips/:id' do
+        if logged_in?
         @trip = Trip.find(params[:id])
         @trip.update(
             location: params[:location], 
@@ -65,6 +66,9 @@ class TripController < ApplicationController
             adventures: params[:adventures]
             )
         redirect "/trips/#{@trip.id}"
+        else 
+            redirect '/trips/:id/edit'
+        end
     end
 
     #delete
@@ -72,7 +76,7 @@ class TripController < ApplicationController
         @trip = Trip.find(params[:id])
         @trip.destroy
 
-        redirect :'/trips'
+        redirect '/trips'
     end
 
 end
