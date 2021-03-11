@@ -4,15 +4,19 @@
 <h3>You have no trips, let's make a new one.</h3>
 <% else %>
 <h3>Here's all of your trips</h3>
-<p><% @user.trips.each do |trip| %>
-   <ul> 
-    <li>Location: <%= trip.location %> <a href="/trips/<%= trip.id %>/edit">Edit</a><br></li>
-    <br>
-    <li>Description: <%= trip.description %><br></li>
-    <br>
-    <li>Adventures: <%= trip.adventures %><br></li>
-    <br>
-    <% end %>
-    <% end %>
-    </ul>
-</p>
+<table style="width:100%">
+    <tr>
+    <th>Location</th>
+    <th>Description</th>
+    <th>Adventures</th>
+    </tr>
+        <% @user.trips.each do |trip| %>
+    <tr>
+        <td><%= trip.location %> <a href="/trips/<%= trip.id %>/edit">Edit</a></td>
+        <td><%= trip.description %></td>
+        <td><%= trip.adventures %><br></td>
+        
+        <% end %>
+        <% end %>
+    </tr>
+</table>

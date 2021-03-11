@@ -1,14 +1,19 @@
-
-<% if !@trips.empty? %>
-<% @trips.each do |trip| %>
-    Location: <%= trip.location %><br>
-    <br>
-    Description: <%= trip.description %><br>
-    <br>
-    Adventures: <%= trip.adventures %><br>
-    <br>
-    Username: <%= trip.user.username %> <a href="/trips/<%= trip.id %>/edit">Edit</a><br>
-    <br>
+<table style="width:100%">
+    <tr>
+        <th>Location</th>
+        <th>Description</th>
+        <th>Adventures</th>
+        <th>Username</th>
+    </tr>
+            <% if !@trips.empty? %>
+            <% @trips.each do |trip| %>
+    <tr>
+        <td><%= trip.location %></td>
+        <td><%= trip.description %></td>
+        <td><%= trip.adventures %></td>
+        <td><%= trip.user.username %></th></td>
+            <% end %>
+            <% end %>
+    </tr>
+</table>
     
-    <% end %>
-    <% end %>

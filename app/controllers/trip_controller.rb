@@ -39,7 +39,7 @@ class TripController < ApplicationController
     
     #read
     get '/trips/:id' do  
-        if logged_in?
+        if logged_in? 
             @trip = Trip.find_by_id(params[:id])
             erb :'/trips/show'
         else

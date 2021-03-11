@@ -12,24 +12,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="/stylesheets/main.css" />
-
+    <br>
     <% if logged_in? %>
-    <%= current_user.username %>
+    <h4><%= current_user.username %></h4>
     <% end %>
-
     <br>
     <% if logged_in? %>
     <div class="btn-group">
-    <button><a href="/trips">All Trips</a></button>
-    <button><a href="/users/<%= current_user.id %>">My Trips</a></button>
-    <button><a href='/trips/new'>New Trip Entry</a></button>
-    <button><a href='/sessions/logout'>Logout </a></button>
+    <button style="margin:2.5px;"><a href="/trips">All Trips</a></button>
+    <button style="margin:2.5px;"><a href="/users/<%= current_user.id %>">My Trips</a></button>
+    <button style="margin:2.5px;"><a href='/trips/new'>New Trip Entry</a></button>
+    <button style="margin:2.5px;"><a href='/sessions/logout'>Logout </a></button>
     </div>  
     <% end %> 
   </head>
   <br>
   <br>
   <body>
+    
     <div class="wrapper">
 
         <%= yield %>
@@ -38,7 +38,6 @@
         <small>&copy; 2021 <strong>GlobeTrotter</strong></small>
       </footer>
     </div>
-
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <!--[if lt IE 7]>
       <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
