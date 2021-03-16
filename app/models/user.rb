@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base 
     has_many :trips
     has_secure_password
-end
+
+    #validates: username, presence: true, uniqueness: true
+end 

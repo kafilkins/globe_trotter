@@ -1,6 +1,6 @@
-class TripController < ApplicationController
+class TripsController < ApplicationController
 
-    #create 
+
     get '/trips' do
         if logged_in? 
             @trips = Trip.all #remember, this will return return an array!!!
@@ -9,7 +9,7 @@ class TripController < ApplicationController
             erb  :'/welcome'
         end
     end
-
+    #create
     get '/trips/new' do 
         if logged_in?
             erb :'/trips/new'
@@ -41,9 +41,11 @@ class TripController < ApplicationController
     get '/trips/:id' do  
         if logged_in? 
             @trip = Trip.find_by_id(params[:id])
+            if @trip == nil || @trip.user_id == current_user.id
             erb :'/trips/show'
         else
-            redirect '/users/login'
+            redirect "/users/#{current_user.id}"
+        end
         end
     end
 
@@ -54,14 +56,14 @@ class TripController < ApplicationController
         if @trip && @trip.user == current_user
             erb :'/trips/edit'
         else
-            redirect to '/users/trip'
+            redirect to '/trips'
         end
     else
         redirect to '/users/login'
     end
     end
 
-    post '/trips/:id' do
+    patch '/trips/:id' do
         if logged_in?
             if params[:location] == "" || params[:description] == "" || params[:adventures] == ""
                 redirect "/trips/#{params[:id]}/edit"

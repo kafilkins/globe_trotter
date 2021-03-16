@@ -5,6 +5,6 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 use Rack::MethodOverride
-use TripController
-use UserController 
+use TripsController
+use UsersController 
 run ApplicationController

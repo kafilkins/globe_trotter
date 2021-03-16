@@ -1,4 +1,4 @@
-class UserController < ApplicationController 
+class UsersController < ApplicationController 
 
     get '/users/signup' do #user can create an account
         erb :'/users/signup'
@@ -41,8 +41,12 @@ class UserController < ApplicationController
 
     get '/users/:id' do  
         if logged_in?
-            @user = User.find(params[:id])
-            erb :'/users/show'
+                @user = User.find(params[:id])
+            if @user == nil  || @user.id == current_user.id 
+                erb :'/users/show'
+            else
+                redirect "/users/#{current_user.id}"
+            end
         end
     end
 
